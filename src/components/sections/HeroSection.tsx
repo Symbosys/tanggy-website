@@ -43,7 +43,7 @@ export function HeroSection() {
         </div>
 
         <div className="relative flex justify-center lg:justify-end">
-          <div className="relative h-[420px] w-full max-w-lg overflow-hidden rounded-3xl border border-brand-border bg-brand-surface-elevated shadow-2xl shadow-brand-primary/10 sm:h-[500px]">
+          <div className="relative h-105 w-full max-w-lg overflow-hidden rounded-3xl border border-brand-border bg-brand-surface-elevated shadow-2xl shadow-brand-primary/10 sm:h-[500px]">
             <Image
               src={hero.image}
               alt="Indian biryani food story"
