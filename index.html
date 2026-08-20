@@ -1,0 +1,937 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Tanggy — Taste Beyond Ordinary</title>
+    <meta
+      name="description"
+      content="Tanggy — discover Biryani, Meat Bhaat, Chicken Bhaat, South Indian favourites and local food stories."
+    />
+    <style>
+      :root {
+        --bg: #fcfaf6;
+        --paper: #fff;
+        --ink: #181715;
+        --muted: #716c65;
+        --orange: #ef5a19;
+        --dark: #211d19;
+        --gold: #c39555;
+        --line: #e8dfd3;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 28px;
+      }
+      nav {
+        height: 84px;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(252, 250, 246, 0.95);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo {
+        height: 61px;
+        width: auto;
+      }
+      .links {
+        display: flex;
+        gap: 27px;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+      }
+      .links a:hover {
+        color: var(--orange);
+      }
+      .navbtn {
+        border: 1px solid var(--ink);
+        padding: 11px 18px;
+        border-radius: 30px;
+        font-size: 11px;
+        font-weight: 800;
+      }
+      .hero {
+        padding: 75px 0 45px;
+        display: grid;
+        grid-template-columns: 0.83fr 1.17fr;
+        gap: 60px;
+        align-items: center;
+      }
+      .kicker {
+        font-size: 10px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--orange);
+        font-weight: 900;
+      }
+      .hero-logo {
+        width: min(275px, 75vw);
+        margin: 14px 0 18px;
+      }
+      .hero h1 {
+        font:
+          500 clamp(48px, 6vw, 79px)/0.94 Georgia,
+          serif;
+        letter-spacing: -4px;
+        margin: 0 0 21px;
+      }
+      .hero h1 em {
+        color: var(--orange);
+      }
+      .hero p {
+        color: var(--muted);
+        font-size: 17px;
+        line-height: 1.8;
+        max-width: 560px;
+      }
+      .actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 26px;
+      }
+      .primary {
+        background: var(--orange);
+        color: #fff;
+        padding: 14px 23px;
+        border-radius: 30px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+      .secondary {
+        background: #fff;
+        border: 1px solid var(--line);
+        padding: 14px 23px;
+        border-radius: 30px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+      .hero-img {
+        height: 600px;
+        overflow: hidden;
+        position: relative;
+      }
+      .hero-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .hero-img:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          transparent 45%,
+          rgba(0, 0, 0, 0.67)
+        );
+      }
+      .badge {
+        position: absolute;
+        z-index: 2;
+        top: 20px;
+        left: 20px;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        padding: 9px 13px;
+        font-size: 9px;
+        letter-spacing: 2px;
+      }
+      .caption {
+        position: absolute;
+        z-index: 2;
+        bottom: 27px;
+        left: 28px;
+        color: #fff;
+        font:
+          italic 27px Georgia,
+          serif;
+      }
+      section {
+        padding: 86px 0;
+      }
+      .head {
+        text-align: center;
+        margin-bottom: 43px;
+      }
+      .head h2 {
+        font:
+          500 48px/1 Georgia,
+          serif;
+        letter-spacing: -2px;
+        margin: 10px 0 14px;
+      }
+      .head p {
+        max-width: 650px;
+        margin: auto;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+      .cravings {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 24px;
+      }
+      .craving {
+        background: #fff;
+        border: 1px solid var(--line);
+        padding: 12px 17px;
+        border-radius: 30px;
+        font-size: 12px;
+        font-weight: 800;
+        transition: 0.2s;
+      }
+      .craving:hover {
+        border-color: var(--orange);
+        color: var(--orange);
+        transform: translateY(-2px);
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 17px;
+      }
+      .card {
+        background: #fff;
+        border: 1px solid var(--line);
+        overflow: hidden;
+        transition: 0.25s;
+      }
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 38px rgba(45, 28, 12, 0.1);
+      }
+      .card-img {
+        height: 235px;
+        overflow: hidden;
+      }
+      .card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.45s;
+      }
+      .card:hover img {
+        transform: scale(1.05);
+      }
+      .card-body {
+        text-align: center;
+        padding: 20px 17px 24px;
+      }
+      .card h3 {
+        font:
+          500 21px Georgia,
+          serif;
+        margin: 0 0 8px;
+      }
+      .card p {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.6;
+        margin: 0;
+      }
+      .occasion {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 17px;
+      }
+      .occasion-card {
+        height: 260px;
+        position: relative;
+        overflow: hidden;
+      }
+      .occasion-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .occasion-card:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(transparent 30%, rgba(0, 0, 0, 0.75));
+      }
+      .occasion-card div {
+        position: absolute;
+        z-index: 2;
+        bottom: 22px;
+        left: 22px;
+        color: #fff;
+      }
+      .occasion-card h3 {
+        font-size: 27px;
+        margin: 0 0 5px;
+      }
+      .occasion-card span {
+        font-size: 12px;
+        color: #eee;
+      }
+      .story {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 70px;
+        align-items: center;
+      }
+      .story-img {
+        height: 510px;
+        overflow: hidden;
+      }
+      .story-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .story-copy .kicker {
+        display: block;
+        margin-bottom: 14px;
+      }
+      .story-copy h2 {
+        font:
+          500 51px/1 Georgia,
+          serif;
+        letter-spacing: -2px;
+        margin: 0 0 22px;
+      }
+      .story-copy p {
+        color: var(--muted);
+        line-height: 1.85;
+        font-size: 15px;
+      }
+      .signature {
+        font:
+          italic 22px Georgia,
+          serif;
+        color: var(--orange);
+        margin-top: 23px;
+      }
+      .dark {
+        background: var(--dark);
+        color: #fff;
+      }
+      .dark .head p {
+        color: #bdb7b0;
+      }
+      .dark .head h2 {
+        color: #fff;
+      }
+      .features {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+      .feature {
+        border: 1px solid #48433e;
+        padding: 27px;
+      }
+      .feature b {
+        font:
+          31px Georgia,
+          serif;
+        color: #dfa15c;
+      }
+      .feature h3 {
+        font:
+          500 21px Georgia,
+          serif;
+        margin: 12px 0 8px;
+      }
+      .feature p {
+        color: #bdb7b0;
+        font-size: 13px;
+        line-height: 1.7;
+        margin: 0;
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 17px;
+      }
+      .gallery-main,
+      .gallery-side {
+        height: 510px;
+        overflow: hidden;
+        position: relative;
+      }
+      .gallery-side {
+        height: 510px;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        gap: 17px;
+      }
+      .gallery-side div {
+        overflow: hidden;
+        position: relative;
+      }
+      .gallery img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.45s;
+      }
+      .gallery div:hover img {
+        transform: scale(1.04);
+      }
+      .overlay {
+        position: absolute;
+        z-index: 2;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 25px;
+        color: #fff;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.72));
+        font:
+          italic 24px Georgia,
+          serif;
+      }
+      .city-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 17px;
+      }
+      .city {
+        background: #fff;
+        border: 1px solid var(--line);
+        padding: 27px;
+      }
+      .city strong {
+        font:
+          500 26px Georgia,
+          serif;
+        display: block;
+        margin-bottom: 8px;
+      }
+      .city span {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .app {
+        background: #f1e2ce;
+        padding: 57px;
+        display: grid;
+        grid-template-columns: 1fr 0.65fr;
+        align-items: center;
+      }
+      .app h2 {
+        font:
+          500 50px/1 Georgia,
+          serif;
+        letter-spacing: -2px;
+        margin: 9px 0 16px;
+      }
+      .app p {
+        color: #625b53;
+        line-height: 1.75;
+      }
+      .phone {
+        text-align: center;
+        font-size: 110px;
+      }
+      .store-note {
+        margin-top: 12px;
+        font-size: 10px;
+        color: #766d64;
+      }
+      .faq {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 17px;
+      }
+      .faq div {
+        background: #fff;
+        border: 1px solid var(--line);
+        padding: 25px;
+      }
+      .faq h3 {
+        font:
+          500 20px Georgia,
+          serif;
+        margin: 0 0 10px;
+      }
+      .faq p {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.65;
+        margin: 0;
+      }
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 31px 0;
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .foot {
+        display: flex;
+        justify-content: space-between;
+      }
+      @media (max-width: 900px) {
+        .links {
+          display: none;
+        }
+        .hero,
+        .story,
+        .app {
+          grid-template-columns: 1fr;
+        }
+        .hero-img {
+          height: 470px;
+        }
+        .cards {
+          grid-template-columns: 1fr 1fr;
+        }
+        .features,
+        .occasion,
+        .city-grid,
+        .faq {
+          grid-template-columns: 1fr 1fr;
+        }
+        .gallery {
+          grid-template-columns: 1fr;
+        }
+        .gallery-main,
+        .gallery-side {
+          height: 390px;
+        }
+        .phone {
+          display: none;
+        }
+      }
+      @media (max-width: 540px) {
+        .container {
+          padding: 0 17px;
+        }
+        .hero {
+          padding-top: 48px;
+        }
+        .hero-img {
+          height: 390px;
+        }
+        .cards,
+        .features,
+        .occasion,
+        .city-grid,
+        .faq {
+          grid-template-columns: 1fr;
+        }
+        .head h2,
+        .story-copy h2,
+        .app h2 {
+          font-size: 40px;
+        }
+        .app {
+          padding: 32px;
+        }
+        .gallery-main,
+        .gallery-side {
+          height: 320px;
+        }
+        .gallery-side {
+          gap: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="container nav">
+        <a href="#top"
+          ><img class="logo" src="assets/tanggy-logo.jpeg" alt="Tanggy"
+        /></a>
+        <div class="links">
+          <a href="#food">Food</a><a href="#story">Story</a
+          ><a href="#experience">Why Tanggy</a><a href="#cities">Cities</a
+          ><a href="#faq">FAQ</a>
+        </div>
+        <a class="navbtn" href="#app">Get App</a>
+      </div>
+    </nav>
+
+    <main id="top">
+      <header class="container hero">
+        <div>
+          <div class="kicker">Taste Beyond Ordinary</div>
+          <img
+            class="hero-logo"
+            src="assets/tanggy-logo.jpeg"
+            alt="Tanggy logo"
+          />
+          <h1>Where familiar food feels <em>extraordinary.</em></h1>
+          <p>
+            Tanggy is a modern food discovery destination for Biryani, Meat
+            Bhaat, Chicken Bhaat, South Indian favourites and the local dishes
+            people love.
+          </p>
+          <div class="actions">
+            <a class="primary" href="#food">Explore Food</a
+            ><a class="secondary" href="#app">Order on Tanggy App →</a>
+          </div>
+        </div>
+        <div class="hero-img">
+          <img
+            src="https://images.pexels.com/photos/9609848/pexels-photo-9609848.jpeg?auto=compress&cs=tinysrgb&w=1400"
+            alt="Indian biryani"
+          />
+          <div class="badge">TANGGY • FOOD STORIES</div>
+          <div class="caption">Real food. Real cravings.</div>
+        </div>
+      </header>
+
+      <section id="food">
+        <div class="container">
+          <div class="head">
+            <div class="kicker">What are you craving?</div>
+            <h2>Start with your mood.</h2>
+            <p>
+              Quick discovery for the kind of food you feel like eating today.
+            </p>
+            <div class="cravings">
+              <a class="craving" href="#biryani">🍛 Biryani</a
+              ><a class="craving" href="#bhaat">🍖 Meat Bhaat</a
+              ><a class="craving" href="#chicken">🍗 Chicken</a
+              ><a class="craving" href="#south">🥞 South Indian</a
+              ><a class="craving" href="#food">🌶️ Traditional</a>
+            </div>
+          </div>
+          <div class="cards">
+            <article class="card" id="biryani">
+              <div class="card-img">
+                <img
+                  src="https://images.pexels.com/photos/9609848/pexels-photo-9609848.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                  alt="Biryani"
+                />
+              </div>
+              <div class="card-body">
+                <h3>All Types of Biryani</h3>
+                <p>
+                  Chicken, Mutton, Egg, Fish and more — fragrant rice, spices
+                  and rich flavours.
+                </p>
+              </div>
+            </article>
+            <article class="card" id="bhaat">
+              <div class="card-img">
+                <img
+                  src="https://images.pexels.com/photos/32825916/pexels-photo-32825916.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                  alt="Mutton biryani"
+                />
+              </div>
+              <div class="card-body">
+                <h3>Meat Bhaat</h3>
+                <p>
+                  Hearty meat and rice combinations inspired by traditional
+                  Indian kitchens.
+                </p>
+              </div>
+            </article>
+            <article class="card" id="chicken">
+              <div class="card-img">
+                <img
+                  src="https://images.pexels.com/photos/36870974/pexels-photo-36870974.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                  alt="Chicken and rice"
+                />
+              </div>
+              <div class="card-body">
+                <h3>Chicken Bhaat</h3>
+                <p>
+                  Chicken, curry and rice combinations made for everyday
+                  comfort.
+                </p>
+              </div>
+            </article>
+            <article class="card" id="south">
+              <div class="card-img">
+                <img
+                  src="https://images.pexels.com/photos/35351659/pexels-photo-35351659.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                  alt="South Indian dosa"
+                />
+              </div>
+              <div class="card-body">
+                <h3>South Indian</h3>
+                <p>
+                  Dosa, Idli, Vada, Uttapam and timeless South Indian
+                  favourites.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="head">
+            <div class="kicker">For every kind of hunger</div>
+            <h2>Food for the moment.</h2>
+          </div>
+          <div class="occasion">
+            <div class="occasion-card">
+              <img
+                src="https://images.pexels.com/photos/15059053/pexels-photo-15059053.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                alt="Biryani dinner"
+              />
+              <div>
+                <h3>Weekend Biryani</h3>
+                <span>Slow down. Eat well.</span>
+              </div>
+            </div>
+            <div class="occasion-card">
+              <img
+                src="https://images.pexels.com/photos/20422123/pexels-photo-20422123.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                alt="South Indian meal"
+              />
+              <div>
+                <h3>Morning South Indian</h3>
+                <span>Start with something warm.</span>
+              </div>
+            </div>
+            <div class="occasion-card">
+              <img
+                src="https://images.pexels.com/photos/35267280/pexels-photo-35267280.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                alt="Indian traditional meal"
+              />
+              <div>
+                <h3>Traditional Meal</h3>
+                <span>Comfort that feels familiar.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="story">
+        <div class="container story">
+          <div class="story-img">
+            <img
+              src="https://images.pexels.com/photos/35267280/pexels-photo-35267280.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Traditional Indian food"
+            />
+          </div>
+          <div class="story-copy">
+            <div class="kicker">The Tanggy Story</div>
+            <h2>Simple food.<br />Beautifully discovered.</h2>
+            <p>
+              Tanggy is built around a simple belief: the best food is often the
+              food you already know and love. We bring familiar Indian flavours
+              into one elegant discovery experience.
+            </p>
+            <p>
+              From a fragrant biryani to a crisp dosa, Tanggy is designed to
+              make discovering your next meal feel as good as eating it.
+            </p>
+            <div class="signature">— Tanggy</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="dark">
+        <div class="container">
+          <div class="head">
+            <div class="kicker" style="color: #dfa15c">Why Tanggy</div>
+            <h2>More than a menu.</h2>
+            <p>
+              Tanggy can grow into a complete food discovery brand, not just an
+              ordering interface.
+            </p>
+          </div>
+          <div class="features">
+            <div class="feature">
+              <b>01</b>
+              <h3>Real Local Flavours</h3>
+              <p>
+                Discover food people actually crave — from traditional meals to
+                everyday favourites.
+              </p>
+            </div>
+            <div class="feature">
+              <b>02</b>
+              <h3>Great Value</h3>
+              <p>
+                Highlight Tanggy's value proposition, offers and app-exclusive
+                benefits without clutter.
+              </p>
+            </div>
+            <div class="feature">
+              <b>03</b>
+              <h3>Food Stories</h3>
+              <p>
+                Tell the story behind dishes, cuisines, cities and local food
+                culture.
+              </p>
+            </div>
+            <div class="feature">
+              <b>04</b>
+              <h3>Easy Ordering</h3>
+              <p>
+                Keep this website elegant and informative, then move customers
+                naturally to the app.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="head">
+            <div class="kicker">Tanggy Journal</div>
+            <h2>Stories behind the food.</h2>
+            <p>A future content engine for SEO, discovery and food lovers.</p>
+          </div>
+          <div class="gallery">
+            <div class="gallery-main">
+              <img
+                src="https://images.pexels.com/photos/15059053/pexels-photo-15059053.jpeg?auto=compress&cs=tinysrgb&w=1400"
+                alt="Biryani"
+              />
+              <div class="overlay">The art of a good biryani.</div>
+            </div>
+            <div class="gallery-side">
+              <div>
+                <img
+                  src="https://images.pexels.com/photos/32229637/pexels-photo-32229637.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                  alt="Masala dosa"
+                />
+              </div>
+              <div>
+                <img
+                  src="https://images.pexels.com/photos/20422123/pexels-photo-20422123.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                  alt="South Indian food"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="cities">
+        <div class="container">
+          <div class="head">
+            <div class="kicker">Local discovery</div>
+            <h2>Discover food in your city.</h2>
+            <p>
+              The final dynamic site can generate city-specific pages, food
+              guides, restaurants and local SEO content.
+            </p>
+          </div>
+          <div class="city-grid">
+            <div class="city">
+              <strong>Ranchi</strong
+              ><span>Biryani • Meat Bhaat • Chicken Bhaat • South Indian</span>
+            </div>
+            <div class="city">
+              <strong>Jamshedpur</strong
+              ><span>Local food stories and Tanggy discovery pages.</span>
+            </div>
+            <div class="city">
+              <strong>Dhanbad</strong
+              ><span>City-specific food guides and partner discovery.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="app">
+        <div class="container">
+          <div class="app">
+            <div>
+              <div class="kicker">Your next meal is closer</div>
+              <h2>Discover here.<br />Order on Tanggy.</h2>
+              <p>
+                The website stays informative and brand-focused. Customers
+                continue to the Tanggy app for availability, ordering and
+                payment.
+              </p>
+              <a class="primary" href="#">Download Tanggy App</a>
+              <div class="store-note">
+                App Store / Google Play links can be inserted when ready.
+              </div>
+            </div>
+            <div class="phone">📱</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq">
+        <div class="container">
+          <div class="head">
+            <div class="kicker">FAQ</div>
+            <h2>Questions, simply answered.</h2>
+          </div>
+          <div class="faq">
+            <div>
+              <h3>Can I order here?</h3>
+              <p>
+                No. The website is for information and discovery. Ordering and
+                payment happen in the Tanggy app.
+              </p>
+            </div>
+            <div>
+              <h3>What does Tanggy offer?</h3>
+              <p>
+                Biryani, Meat Bhaat, Chicken Bhaat, South Indian dishes and
+                additional local favourites.
+              </p>
+            </div>
+            <div>
+              <h3>Will the website be dynamic?</h3>
+              <p>
+                Yes. Categories, dishes, cities, blogs, FAQs, offers and SEO
+                pages can be managed from an admin/CMS layer.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="head">
+            <div class="kicker">The Tanggy Promise</div>
+            <h2>Good food shouldn't feel ordinary.</h2>
+            <p>
+              Real food. Local flavours. Beautiful discovery. One simple
+              destination — Tanggy.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container foot">
+        <span>© 2026 Tanggy — Taste Beyond Ordinary</span
+        ><span>Privacy • Terms • Contact</span>
+      </div>
+    </footer>
+  </body>
+</html>
