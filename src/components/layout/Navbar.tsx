@@ -53,7 +53,7 @@ export function Navbar() {
             className="group relative flex items-center gap-3 transition-transform duration-300 hover:scale-105"
           >
             <div className="relative flex items-center justify-center">
-              <div className="absolute -inset-1.5 rounded-full bg-gradient-to-r from-brand-primary-light to-brand-primary opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-75" />
+              <div className="absolute -inset-1.5 rounded-full bg-linear-to-r from-brand-primary-light to-brand-primary opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-75" />
               <Image
                 src="/logo.png"
                 alt="Tanggy logo"

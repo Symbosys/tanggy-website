@@ -6,7 +6,7 @@ export function StorySection() {
     <section id="story" className="section-warm py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="relative h-[450px] w-full overflow-hidden rounded-3xl border border-brand-border bg-brand-surface-elevated shadow-xl lg:h-[500px]">
+          <div className="relative h-112.5 w-full overflow-hidden rounded-3xl border border-brand-border bg-brand-surface-elevated shadow-xl lg:h-125">
             <Image
               src={storyContent.image}
               alt="The Tanggy Story - Traditional Indian food"

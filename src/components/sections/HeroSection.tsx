@@ -43,7 +43,7 @@ export function HeroSection() {
         </div>
 
         <div className="relative flex justify-center lg:justify-end">
-          <div className="relative h-105 w-full max-w-lg overflow-hidden rounded-3xl border border-brand-border bg-brand-surface-elevated shadow-2xl shadow-brand-primary/10 sm:h-[500px]">
+          <div className="relative h-105 w-full max-w-lg overflow-hidden rounded-3xl border border-brand-border bg-brand-surface-elevated shadow-2xl shadow-brand-primary/10 sm:h-125">
             <Image
               src={hero.image}
               alt="Indian biryani food story"
@@ -51,7 +51,7 @@ export function HeroSection() {
               className="object-cover"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
             <div className="absolute top-5 left-5 rounded-full border border-white/40 bg-black/40 px-3.5 py-1.5 text-[10px] font-bold tracking-widest text-white backdrop-blur-md">
               {hero.badge}
             </div>
