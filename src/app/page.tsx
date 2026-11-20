@@ -1,11 +1,11 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { ModesSection } from "@/components/sections/ModesSection";
-import { OccasionSection } from "@/components/sections/OccasionSection";
-import { StorySection } from "@/components/sections/StorySection";
+import { BrandStorySection } from "@/components/sections/BrandStorySection";
+import { VisionSection } from "@/components/sections/VisionSection";
+import { FoodCultureSection } from "@/components/sections/FoodCultureSection";
+import { SpecialSection } from "@/components/sections/SpecialSection";
 import { WhyTanggySection } from "@/components/sections/WhyTanggySection";
-import { JournalSection } from "@/components/sections/JournalSection";
 import { CitiesSection } from "@/components/sections/CitiesSection";
 import { OrderTrackingSection } from "@/components/sections/OrderTrackingSection";
 import { DownloadSection } from "@/components/sections/DownloadSection";
@@ -18,11 +18,11 @@ export default function Home() {
       <Navbar />
       <main id="top">
         <HeroSection />
-        <ModesSection />
-        <OccasionSection />
-        <StorySection />
+        <BrandStorySection />
+        <VisionSection />
+        <FoodCultureSection />
+        <SpecialSection />
         <WhyTanggySection />
-        <JournalSection />
         <CitiesSection />
         <OrderTrackingSection />
         <DownloadSection />

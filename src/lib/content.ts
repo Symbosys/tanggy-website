@@ -22,13 +22,12 @@ export const hero = {
   headline: "Where familiar food feels",
   headlineAccent: "extraordinary.",
   description:
-    "Tanggy is a modern food discovery destination for Biryani, Meat Bhaat, Chicken Bhaat, South Indian favourites and the local dishes people love.",
+    "Tanggy is a modern food discovery destination for Biryani, Meat Rice, Chicken Rice, South Indian favourites and the local dishes people love.",
   primaryAction: "Explore Food",
   secondaryAction: "Order on Tanggy App →",
   badge: "TANGGY • FOOD STORIES",
   caption: "Real food. Real cravings.",
-  image:
-    "https://images.pexels.com/photos/9609848/pexels-photo-9609848.jpeg?auto=compress&cs=tinysrgb&w=1400",
+  image: "/assets/hero-biryani.png",
 } as const;
 
 export type FoodMode = {
@@ -66,7 +65,7 @@ export const foodModes: FoodMode[] = [
   },
   {
     id: "bhaat",
-    name: "Meat Bhaat",
+    name: "Meat Rice",
     emoji: "🍖",
     description:
       "Hearty meat and rice combinations inspired by traditional Indian kitchens.",
@@ -74,7 +73,7 @@ export const foodModes: FoodMode[] = [
     examples: [
       "Mutton Rice Combo",
       "Desi Mutton Curry",
-      "Handi Meat Bhaat",
+      "Handi Meat Rice",
       "Gravy Rice Bowl",
     ],
     screenItems: [
@@ -86,22 +85,22 @@ export const foodModes: FoodMode[] = [
   },
   {
     id: "chicken",
-    name: "Chicken Bhaat",
+    name: "Chicken Rice",
     emoji: "🍗",
     description:
       "Chicken, curry and rice combinations made for everyday comfort.",
     accentClass: "border-brand-primary-light",
     examples: [
-      "Home-style Chicken Bhaat",
+      "Home-style Chicken Rice",
       "Chicken Rice Combo",
       "Butter Chicken & Rice",
       "Tariwala Chicken",
     ],
     screenItems: [
-      { name: "Chicken Bhaat Combo", price: "₹229" },
+      { name: "Chicken Rice Combo", price: "₹229" },
       { name: "Tariwala Chicken Rice", price: "₹249" },
       { name: "Home Style Chicken", price: "₹219" },
-      { name: "Butter Chicken Bhaat", price: "₹279" },
+      { name: "Butter Chicken Rice", price: "₹279" },
     ],
   },
   {
@@ -229,7 +228,7 @@ export const citiesContent = {
   cities: [
     {
       name: "Ranchi",
-      details: "Biryani • Meat Bhaat • Chicken Bhaat • South Indian",
+      details: "Biryani • Meat Rice • Chicken Rice • South Indian",
     },
     {
       name: "Jamshedpur",
@@ -264,7 +263,7 @@ export const faqContent = {
     {
       question: "What does Tanggy offer?",
       answer:
-        "Biryani, Meat Bhaat, Chicken Bhaat, South Indian dishes and additional local favourites.",
+        "Biryani, Meat Rice, Chicken Rice, South Indian dishes and additional local favourites.",
     },
     {
       question: "Will the website be dynamic?",

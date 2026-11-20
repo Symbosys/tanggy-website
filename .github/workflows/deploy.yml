@@ -1,0 +1,37 @@
+name: Deploy Tanggy Website
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to Ubuntu VPS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy application
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            set -e
+
+            echo "Starting Tanggy deployment..."
+
+            cd /var/www/tanggy-website
+
+            git pull --ff-only origin main
+
+            /usr/bin/pnpm install --frozen-lockfile
+
+            /usr/bin/pnpm build
+
+            sudo /usr/bin/pm2 reload tanggy-website
+
+            echo "Deployment successful!"
