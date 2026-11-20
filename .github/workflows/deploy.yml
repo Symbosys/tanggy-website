@@ -4,34 +4,43 @@ on:
   push:
     branches:
       - main
-
   workflow_dispatch:
 
 jobs:
   deploy:
-    name: Deploy to Ubuntu VPS
     runs-on: ubuntu-latest
 
     steps:
+      - name: Configure SSH
+        env:
+          SSH_KEY_B64: ${{ secrets.VPS_SSH_KEY_B64 }}
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+
+          echo "$SSH_KEY_B64" | base64 -d > ~/.ssh/id_ed25519
+
+          chmod 600 ~/.ssh/id_ed25519
+
+          ssh-keygen -y -f ~/.ssh/id_ed25519 > /dev/null
+
+      - name: Add VPS to known hosts
+        run: |
+          ssh-keyscan -H "${{ secrets.VPS_HOST }}" >> ~/.ssh/known_hosts
+
       - name: Deploy application
-        uses: appleboy/ssh-action@v1.2.0
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          script: |
-            set -e
-
-            echo "Starting Tanggy deployment..."
-
-            cd /var/www/tanggy-website
-
-            git pull --ff-only origin main
-
-            /usr/bin/pnpm install --frozen-lockfile
-
-            /usr/bin/pnpm build
-
-            sudo /usr/bin/pm2 reload tanggy-website
-
-            echo "Deployment successful!"
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+        run: |
+          ssh -i ~/.ssh/id_ed25519 \
+            -o IdentitiesOnly=yes \
+            "$VPS_USER@$VPS_HOST" '
+              set -e
+              cd /var/www/tanggy-website
+              git pull --ff-only origin main
+              /usr/bin/pnpm install --frozen-lockfile
+              /usr/bin/pnpm build
+              sudo /usr/bin/pm2 reload tanggy-website
+              echo "Deployment successful!"
+            '
