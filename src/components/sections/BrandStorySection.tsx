@@ -27,7 +27,7 @@ export function BrandStorySection() {
   return (
     <section
       id="story"
-      className="relative overflow-hidden bg-linear-to-b from-[#fffdfb] via-[#ffffff] to-[#fff9f3] pt-14 sm:pt-18 lg:pt-20 pb-2 sm:pb-3 lg:pb-4"
+      className="relative overflow-hidden bg-white py-12 sm:py-16 lg:py-20"
     >
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-6 lg:grid-cols-12 lg:gap-8 xl:gap-10">

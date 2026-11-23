@@ -93,7 +93,7 @@ export function SpecialSection() {
   return (
     <section
       id="special"
-      className="relative overflow-hidden bg-gradient-to-b from-[#fffbf8] via-[#fff8f2] to-[#fef5ea] pt-8 sm:pt-12 lg:pt-16 pb-12 sm:pb-16 lg:pb-20"
+      className="relative overflow-hidden bg-white py-12 sm:py-16 lg:py-20"
     >
       {/* 1. LEFT SCREEN-EDGE WARM PEACH CIRCLE */}
       <div

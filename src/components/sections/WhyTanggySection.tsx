@@ -145,7 +145,7 @@ export function WhyTanggySection() {
   return (
     <section
       id="experience"
-      className="relative overflow-hidden bg-brand-text py-16 sm:py-20 lg:py-24 text-white"
+      className="relative overflow-hidden bg-brand-text py-12 sm:py-16 lg:py-20 text-white"
     >
       {/* Decorative Warm Ambient Glow (Top Center) */}
       <div

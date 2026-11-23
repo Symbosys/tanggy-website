@@ -26,7 +26,7 @@ export function VisionSection() {
   return (
     <section
       id="vision"
-      className="relative overflow-hidden bg-gradient-to-b from-[#fffaf5] via-[#ffffff] to-[#fff6ee] pt-1 sm:pt-2 lg:pt-3 pb-3 sm:pb-4 lg:pb-5"
+      className="relative overflow-hidden bg-gradient-to-b from-[#fff8f0] via-[#fffbf6] to-[#fff8f0] border-y border-[#fed7aa]/35 py-12 sm:py-16 lg:py-20"
     >
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* TOP ROW: Vision Copy (Left) + Food Visual (Right) */}

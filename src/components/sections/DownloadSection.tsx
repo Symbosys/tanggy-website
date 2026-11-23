@@ -3,7 +3,10 @@ import { StoreBadge } from "@/components/ui/StoreBadge";
 
 export function DownloadSection() {
   return (
-    <section id="app" className="py-20 lg:py-28">
+    <section
+      id="app"
+      className="relative overflow-hidden bg-gradient-to-b from-[#fff8f0] via-[#fffbf6] to-[#fff8f0] border-y border-[#fed7aa]/35 py-12 sm:py-16 lg:py-20"
+    >
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="relative overflow-hidden rounded-3xl bg-brand-primary-dark px-8 py-14 text-center sm:px-12 sm:py-16 lg:px-16">
           <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-brand-primary-light/20 blur-3xl" />

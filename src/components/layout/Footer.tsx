@@ -7,13 +7,13 @@ export function Footer() {
     <footer className="border-t border-brand-border bg-brand-text text-white">
       <div className="mx-auto max-w-7xl px-5 py-14 lg:px-8">
         <div className="grid gap-10 md:grid-cols-3">
-          <div>
+          <div className="flex flex-col items-center text-center sm:items-start sm:text-left">
             <Image
               src="/logo.png"
               alt="Tanggy logo"
               width={140}
-              height={56}
-              className="mb-4 h-14 w-auto brightness-0 invert"
+              height={140}
+              className="mb-4 h-20 w-auto rounded-xl bg-white p-2 object-contain"
             />
             <p className="font-script text-2xl text-brand-primary-light">
               {brand.tagline}

@@ -5,11 +5,14 @@ import { BrandStorySection } from "@/components/sections/BrandStorySection";
 import { VisionSection } from "@/components/sections/VisionSection";
 import { FoodCultureSection } from "@/components/sections/FoodCultureSection";
 import { SpecialSection } from "@/components/sections/SpecialSection";
+import { CommunityFlavoursSection } from "@/components/sections/CommunityFlavoursSection";
 import { WhyTanggySection } from "@/components/sections/WhyTanggySection";
 import { CitiesSection } from "@/components/sections/CitiesSection";
+import { VendorCommunitySection } from "@/components/sections/VendorCommunitySection";
 import { OrderTrackingSection } from "@/components/sections/OrderTrackingSection";
 import { DownloadSection } from "@/components/sections/DownloadSection";
-import { FAQSection } from "@/components/sections/FAQSection";
+import { MissionVisionSection } from "@/components/sections/MissionVisionSection";
+import { BrandBeliefSection } from "@/components/sections/BrandBeliefSection";
 import { PromiseSection } from "@/components/sections/PromiseSection";
 
 export default function Home() {
@@ -20,13 +23,16 @@ export default function Home() {
         <HeroSection />
         <BrandStorySection />
         <VisionSection />
+        <BrandBeliefSection />
         <FoodCultureSection />
         <SpecialSection />
+        <CommunityFlavoursSection />
         <WhyTanggySection />
         <CitiesSection />
+        <VendorCommunitySection />
         <OrderTrackingSection />
         <DownloadSection />
-        <FAQSection />
+        <MissionVisionSection />
         <PromiseSection />
       </main>
       <Footer />

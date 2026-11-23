@@ -413,7 +413,7 @@ export function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-linear-to-br from-[#fffaf5] via-[#fffdfb] to-[#fff5eb] pt-24 pb-12 sm:pt-28 sm:pb-14 lg:pt-32 lg:pb-16"
+      className="relative overflow-hidden bg-linear-to-br from-[#fffaf5] via-[#fffdfb] to-[#fff5eb] pt-28 pb-12 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20"
     >
       {/* Sweeping Right-Side & Bottom Orange Wave Backdrop */}
       <svg

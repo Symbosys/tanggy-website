@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { BiryaniModal } from "@/components/ui/BiryaniModal";
+import { SouthIndianModal } from "@/components/ui/SouthIndianModal";
 
 interface DishItem {
   id: string;
@@ -72,10 +74,22 @@ const dishes: DishItem[] = [
 export function FoodCultureSection() {
   const [selectedDish, setSelectedDish] = useState<DishItem | null>(null);
 
+  // Lock background page scroll only while modal is open, restore immediately on close
+  useEffect(() => {
+    if (selectedDish) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedDish]);
+
   return (
     <section
       id="food"
-      className="relative overflow-hidden bg-gradient-to-b from-[#fffdfa] via-[#ffffff] to-[#fff8f2] pt-8 sm:pt-12 lg:pt-14 pb-12 sm:pb-14 lg:pb-16"
+      className="relative overflow-hidden bg-gradient-to-b from-[#fff8f0] via-[#fffbf6] to-[#fff6ec] border-y border-[#fed7aa]/35 py-12 sm:py-16 lg:py-20"
     >
       {/* Top-Right Decorative Amber Swoosh */}
       <div
@@ -124,6 +138,7 @@ export function FoodCultureSection() {
               <p>
                 From biryani to dosa, explore the rich flavours and diversity of
                 Indian cuisine.
+                
               </p>
               <p>
                 At Tanggy, we celebrate the diversity of Biryani prepared
@@ -221,89 +236,93 @@ export function FoodCultureSection() {
       </div>
 
       {/* DISH DETAIL MODAL */}
-      {selectedDish && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="dish-modal-title"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
-        >
-          {/* Backdrop */}
+      {selectedDish &&
+        (selectedDish.id === "biryani" ? (
+          <BiryaniModal onClose={() => setSelectedDish(null)} />
+        ) : selectedDish.id === "south-indian" ? (
+          <SouthIndianModal onClose={() => setSelectedDish(null)} />
+        ) : (
           <div
-            onClick={() => setSelectedDish(null)}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300"
-          />
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="dish-modal-title"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+          >
+            {/* Backdrop */}
+            <div
+              onClick={() => setSelectedDish(null)}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300"
+            />
 
-          {/* Modal Content */}
-          <div className="relative z-10 w-full max-w-lg overflow-hidden rounded-3xl bg-white shadow-2xl border border-orange-100">
-            {/* Dish Image Banner */}
-            <div className="relative h-60 sm:h-72 w-full bg-slate-900">
-              <Image
-                src={selectedDish.image}
-                alt={selectedDish.name}
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+            {/* Modal Content */}
+            <div className="relative z-10 w-full max-w-lg overflow-hidden rounded-3xl bg-white shadow-2xl border border-orange-100">
+              {/* Dish Image Banner */}
+              <div className="relative h-60 sm:h-72 w-full bg-slate-900">
+                <Image
+                  src={selectedDish.image}
+                  alt={selectedDish.name}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
-              {/* Close Button */}
-              <button
-                type="button"
-                onClick={() => setSelectedDish(null)}
-                className="absolute top-4 right-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/70 transition-colors cursor-pointer"
-                aria-label="Close dish preview"
-              >
-                <svg
-                  className="h-5 w-5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-              </button>
-
-              {/* Tag Badge */}
-              <div className="absolute top-4 left-4 rounded-full bg-black/50 backdrop-blur-xs px-3 py-1 text-xs font-semibold text-orange-300 border border-white/20">
-                {selectedDish.tag}
-              </div>
-
-              {/* Dish Name on Overlay */}
-              <div className="absolute bottom-4 left-4 right-4">
-                <h3
-                  id="dish-modal-title"
-                  className="text-2xl sm:text-3xl font-extrabold text-white leading-tight"
-                >
-                  {selectedDish.name}
-                </h3>
-                <p className="text-sm text-white/80 mt-1">
-                  {selectedDish.description}
-                </p>
-              </div>
-            </div>
-
-            {/* Modal Body */}
-            <div className="p-6 sm:p-7">
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed whitespace-pre-line">
-                {selectedDish.fullDesc}
-              </p>
-
-              <div className="mt-6 flex items-center justify-between gap-4 pt-4 border-t border-slate-100">
-                <a
-                  href="#app"
+                {/* Close Button */}
+                <button
+                  type="button"
                   onClick={() => setSelectedDish(null)}
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f97316] to-[#ea580c] py-2.5 px-6 text-sm font-bold text-white shadow-md shadow-orange-500/25 hover:from-[#ea580c] hover:to-[#c2410c] transition-all cursor-pointer"
+                  className="absolute top-4 right-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/70 transition-colors cursor-pointer"
+                  aria-label="Close dish preview"
                 >
-                  <span>Order Authentic {selectedDish.name}</span>
-                  <span>→</span>
-                </a>
+                  <svg
+                    className="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                </button>
+
+                {/* Tag Badge */}
+                <div className="absolute top-4 left-4 rounded-full bg-black/50 backdrop-blur-xs px-3 py-1 text-xs font-semibold text-orange-300 border border-white/20">
+                  {selectedDish.tag}
+                </div>
+
+                {/* Dish Name on Overlay */}
+                <div className="absolute bottom-4 left-4 right-4">
+                  <h3
+                    id="dish-modal-title"
+                    className="text-2xl sm:text-3xl font-extrabold text-white leading-tight"
+                  >
+                    {selectedDish.name}
+                  </h3>
+                  <p className="text-sm text-white/80 mt-1">
+                    {selectedDish.description}
+                  </p>
+                </div>
+              </div>
+
+              {/* Modal Body */}
+              <div className="p-6 sm:p-7">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed whitespace-pre-line">
+                  {selectedDish.fullDesc}
+                </p>
+
+                <div className="mt-6 flex items-center justify-end pt-4 border-t border-slate-100">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedDish(null)}
+                    className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-gradient-to-b from-[#fcd34d] via-[#f5a722] to-[#d97706] px-6 sm:px-7 py-2 sm:py-2.5 text-sm sm:text-base font-bold text-[#0f2444] shadow-xs hover:brightness-105 active:scale-98 transition-all cursor-pointer border border-[#d97706]/30"
+                  >
+                    Close Story
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
+        ))}
     </section>
   );
 }

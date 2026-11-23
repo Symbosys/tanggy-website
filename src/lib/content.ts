@@ -9,7 +9,6 @@ export const navLinks = [
   { label: "Story", href: "#story" },
   { label: "Why Tanggy", href: "#experience" },
   { label: "Cities", href: "#cities" },
-  { label: "FAQ", href: "#faq" },
 ] as const;
 
 export const storeLinks = {
@@ -311,5 +310,4 @@ export const footerLinks = [
   { label: "Story", href: "#story" },
   { label: "Why Tanggy", href: "#experience" },
   { label: "Cities", href: "#cities" },
-  { label: "FAQ", href: "#faq" },
 ] as const;
