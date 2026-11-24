@@ -5,10 +5,12 @@ export const brand = {
 } as const;
 
 export const navLinks = [
-  { label: "Food", href: "#food" },
   { label: "Story", href: "#story" },
+  { label: "Food", href: "#food" },
   { label: "Why Tanggy", href: "#experience" },
   { label: "Cities", href: "#cities" },
+  { label: "Community", href: "#community" },
+  { label: "Tracking", href: "#tracking" },
 ] as const;
 
 export const storeLinks = {
@@ -306,8 +308,10 @@ export const trackingFeatures = [
 ] as const;
 
 export const footerLinks = [
-  { label: "Food", href: "#food" },
   { label: "Story", href: "#story" },
+  { label: "Food", href: "#food" },
   { label: "Why Tanggy", href: "#experience" },
   { label: "Cities", href: "#cities" },
+  { label: "Community", href: "#community" },
+  { label: "Tracking", href: "#tracking" },
 ] as const;

@@ -7,8 +7,8 @@ export function DownloadSection() {
       id="app"
       className="relative overflow-hidden bg-gradient-to-b from-[#fff8f0] via-[#fffbf6] to-[#fff8f0] border-y border-[#fed7aa]/35 py-12 sm:py-16 lg:py-20"
     >
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="relative overflow-hidden rounded-3xl bg-brand-primary-dark px-8 py-14 text-center sm:px-12 sm:py-16 lg:px-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="relative overflow-hidden rounded-3xl bg-brand-primary-dark px-4 py-12 text-center xs:px-6 sm:px-12 sm:py-16 lg:px-16">
           <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-brand-primary-light/20 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-brand-primary/30 blur-3xl" />
 
@@ -31,7 +31,7 @@ export function DownloadSection() {
               >
                 {appContent.buttonText}
               </a>
-              <StoreBadge variant="light" />
+              <StoreBadge variant="light" className="w-full max-w-xs sm:max-w-none sm:w-auto" />
             </div>
 
             <p className="mt-6 text-xs text-white/60">

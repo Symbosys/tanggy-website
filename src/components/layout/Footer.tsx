@@ -23,33 +23,36 @@ export function Footer() {
             </p>
           </div>
 
-          <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/40">
-              Quick Links
-            </h3>
-            <ul className="space-y-2">
-              {footerLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-white/70 transition-colors hover:text-brand-primary-light"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Quick Links & Legal & Support side-by-side on mobile */}
+          <div className="grid grid-cols-2 gap-6 sm:gap-8 md:col-span-2 md:grid-cols-2">
+            <div>
+              <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/40">
+                Quick Links
+              </h3>
+              <ul className="space-y-2">
+                {footerLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white/70 transition-colors hover:text-brand-primary-light"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/40">
-              Legal & Support
-            </h3>
-            <ul className="space-y-2 text-sm text-white/70">
-              <li>Privacy Policy</li>
-              <li>Terms of Service</li>
-              <li>Contact Us</li>
-            </ul>
+            <div>
+              <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/40">
+                Legal & Support
+              </h3>
+              <ul className="space-y-2 text-sm text-white/70">
+                <li>Privacy Policy</li>
+                <li>Terms of Service</li>
+                <li>Contact Us</li>
+              </ul>
+            </div>
           </div>
         </div>
 

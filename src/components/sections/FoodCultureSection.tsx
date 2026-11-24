@@ -104,9 +104,9 @@ export function FoodCultureSection() {
       />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12 xl:gap-16">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12 xl:gap-16">
           {/* LEFT COLUMN: Section Header & Big Hero Biryani Dish */}
-          <div className="flex flex-col items-center text-center lg:col-span-6 lg:items-start lg:text-left">
+          <div className="flex w-full min-w-0 flex-col items-center text-center lg:col-span-6 lg:items-start lg:text-left mx-auto">
             {/* Badge: Our Food Culture */}
             <div className="inline-flex items-center gap-2 rounded-full bg-[#ffedd5] px-3.5 py-1.5 text-xs sm:text-sm font-bold text-[#ea580c] shadow-xs border border-[#fed7aa]">
               {/* Fork & Spoon SVG icon */}
@@ -128,17 +128,18 @@ export function FoodCultureSection() {
             </div>
 
             {/* Title: Celebrating India's Authentic Food Culture */}
-            <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-[#111827] sm:text-4xl md:text-5xl lg:text-[2.65rem] leading-[1.16]">
-              Celebrating India&apos;s{" "}
-              <span className="text-[#ea580c]">Authentic</span> Food Culture
+            <h2 className="mt-3.5 w-full text-center lg:text-left text-xl sm:text-3xl md:text-4xl lg:text-[2.65rem] font-extrabold tracking-tight text-[#111827] leading-snug sm:leading-[1.16]">
+              <span className="block sm:inline">Celebrating India&apos;s</span>{" "}
+              <span className="block sm:inline">
+                <span className="text-[#ea580c]">Authentic</span> Food Culture
+              </span>
             </h2>
 
             {/* Subtitle */}
-            <div className="mt-3 space-y-1.5 text-sm sm:text-base lg:text-[1.05rem] text-slate-600 leading-relaxed max-w-lg">
+            <div className="mt-3 w-full max-w-[320px] sm:max-w-lg space-y-2 text-xs sm:text-base lg:text-[1.05rem] text-slate-600 leading-relaxed text-center lg:text-left mx-auto lg:mx-0">
               <p>
                 From biryani to dosa, explore the rich flavours and diversity of
                 Indian cuisine.
-                
               </p>
               <p>
                 At Tanggy, we celebrate the diversity of Biryani prepared
@@ -148,16 +149,15 @@ export function FoodCultureSection() {
             </div>
 
             {/* Left Big Food Platter Graphic with Decorative Elements */}
-            <div className="relative -mt-2 sm:-mt-4 lg:-mt-6 w-full max-w-[480px] sm:max-w-[520px] flex items-center justify-center">
+            <div className="relative mt-2 sm:-mt-4 lg:-mt-6 w-full max-w-[340px] sm:max-w-[480px] lg:max-w-[520px] flex items-center justify-center mx-auto">
               {/* Soft circular warm glow behind hero dish */}
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-64 w-64 sm:h-80 sm:w-80 rounded-full bg-gradient-to-br from-[#fed7aa]/60 via-[#ffedd5]/40 to-transparent blur-2xl"
+                className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-56 w-56 sm:h-80 sm:w-80 rounded-full bg-gradient-to-br from-[#fed7aa]/60 via-[#ffedd5]/40 to-transparent blur-2xl"
               />
 
-
-              {/* Main Cutout Image */}
-              <div className="relative z-10 w-full aspect-[3/2] drop-shadow-[0_20px_35px_rgba(234,88,12,0.18)] transition-transform duration-300 hover:scale-[1.02]">
+              {/* Main Cutout Image — Center-aligned dish platter */}
+              <div className="relative z-10 w-full aspect-[3/2] drop-shadow-[0_20px_35px_rgba(234,88,12,0.18)] transition-transform duration-300 hover:scale-[1.02] flex items-center justify-center">
                 <Image
                   src="/assets/culture-hero-biryani.png"
                   alt="Authentic Dum Biryani with salan and raita in copper handi"
@@ -167,10 +167,10 @@ export function FoodCultureSection() {
                 />
               </div>
 
-              {/* Indian Heritage Line Illustration Directly Under the Dish (Foreground z-20) */}
+              {/* Indian Heritage Line Illustration — Anchored to LEFT on mobile (left-0 sm:left-2) */}
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute -bottom-14 sm:-bottom-18 lg:-bottom-20 -left-1 sm:left-2 z-20 w-40 sm:w-48 lg:w-52 opacity-85 drop-shadow-xs"
+                className="pointer-events-none absolute -bottom-8 sm:-bottom-18 lg:-bottom-20 left-0 sm:left-2 z-20 w-32 sm:w-48 lg:w-52 opacity-85 drop-shadow-xs"
               >
                 <Image
                   src="/assets/story-skyline.png"

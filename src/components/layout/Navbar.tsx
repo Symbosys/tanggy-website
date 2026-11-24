@@ -27,18 +27,17 @@ export function Navbar() {
       }
 
       const sectionIds = navLinks.map((l) => l.href.replace("#", ""));
-      const currentSection = sectionIds.find((id) => {
-        const el = document.getElementById(id);
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sectionIds[i]);
         if (el) {
           const rect = el.getBoundingClientRect();
-          return rect.top <= 160 && rect.bottom >= 160;
+          if (rect.top <= 200) {
+            setActiveSection(sectionIds[i]);
+            return;
+          }
         }
-        return false;
-      });
-
-      if (currentSection) {
-        setActiveSection(currentSection);
       }
+      setActiveSection("top");
     };
 
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -182,10 +181,10 @@ export function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className={`whitespace-nowrap rounded-full py-1.5 text-[13px] font-semibold transition-colors duration-200 xl:py-2 xl:text-sm ${
+                  className={`whitespace-nowrap rounded-full py-1.5 text-[12.5px] font-semibold transition-colors duration-200 xl:py-2 xl:text-sm ${
                     isActive
-                      ? "bg-linear-to-r from-[#f97316] to-[#dc4c07] px-3.5 text-white shadow-md shadow-orange-500/25 xl:px-5"
-                      : "px-2.5 text-[#1f2937] hover:bg-orange-50/80 hover:text-[#ea580c] xl:px-4"
+                      ? "bg-linear-to-r from-[#f97316] to-[#dc4c07] px-3.5 text-white shadow-md shadow-orange-500/25 xl:px-4.5"
+                      : "px-2 text-[#1f2937] hover:bg-orange-50/80 hover:text-[#ea580c] xl:px-3.5"
                   }`}
                 >
                   {link.label}
@@ -194,8 +193,8 @@ export function Navbar() {
             })}
           </div>
 
-          {/* Right: Search Icon, Login Pill & Order Now CTA (Desktop) */}
-          <div className="hidden shrink-0 items-center gap-1.5 lg:flex xl:gap-2.5">
+          {/* Right: Search Icon & Order Now CTA (Desktop) */}
+          <div className="hidden shrink-0 items-center gap-2 lg:flex xl:gap-3">
             <a
               href="#food"
               aria-label="Explore food"
@@ -214,26 +213,6 @@ export function Navbar() {
                   d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z"
                 />
               </svg>
-            </a>
-
-            <a
-              href="#app"
-              className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border border-gray-200 bg-white px-3 py-1.5 text-[13px] font-semibold text-[#1f2937] transition-colors duration-200 hover:border-orange-300 hover:bg-orange-50/40 hover:text-[#ea580c] xl:gap-2 xl:px-4 xl:py-2 xl:text-sm"
-            >
-              <svg
-                className="h-4 w-4 text-[#6b7280]"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 20.118a7.5 7.5 0 0115 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.5-1.632z"
-                />
-              </svg>
-              <span>Login</span>
             </a>
 
             <a
@@ -379,30 +358,10 @@ export function Navbar() {
                 );
               })}
 
-              <div className="drawer-item mt-3 grid grid-cols-2 gap-2.5 border-t border-gray-100 pt-4">
+              <div className="drawer-item mt-3 border-t border-gray-100 pt-4">
                 <a
                   href="#app"
-                  className="flex items-center justify-center gap-1.5 rounded-full border border-gray-200 bg-white py-2.5 text-sm font-semibold text-[#1f2937] transition-colors hover:border-orange-300 hover:text-[#ea580c]"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  <svg
-                    className="h-4 w-4 text-[#6b7280]"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 20.118a7.5 7.5 0 0115 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.5-1.632z"
-                    />
-                  </svg>
-                  <span>Login</span>
-                </a>
-                <a
-                  href="#app"
-                  className="animate-shimmer flex items-center justify-center gap-1.5 rounded-full bg-linear-to-r from-[#f97316] to-[#dc4c07] py-2.5 text-sm font-bold text-white shadow-md shadow-orange-500/25"
+                  className="animate-shimmer flex w-full items-center justify-center gap-2 rounded-full bg-linear-to-r from-[#f97316] to-[#dc4c07] py-3 text-sm font-bold text-white shadow-md shadow-orange-500/25 transition-transform active:scale-[0.98]"
                   onClick={() => setMenuOpen(false)}
                 >
                   <svg

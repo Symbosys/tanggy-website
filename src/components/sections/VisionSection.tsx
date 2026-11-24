@@ -320,7 +320,7 @@ export function VisionSection() {
             </h3>
 
             {/* Modal Body Copy */}
-            <div className="mt-6 space-y-4 text-slate-600 leading-relaxed text-sm sm:text-base">
+            <div className="mt-6 space-y-4 text-justify text-slate-600 leading-relaxed text-sm sm:text-base">
               <p>
                 Tanggy was created with a simple but meaningful vision: to
                 bring authentic regional food and traditional local specialities

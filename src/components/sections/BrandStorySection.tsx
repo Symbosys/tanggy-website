@@ -221,8 +221,143 @@ export function BrandStorySection() {
               passionate food makers, so you can enjoy real food, anytime.
             </p>
 
-            {/* Action Buttons Block — Read Full Story centered directly above Explore Food & Order on Tanggy App */}
-            <div className="mt-4 sm:mt-5 inline-flex flex-col items-center">
+            {/* Mobile Action Buttons Layout (< sm):
+                Row 1: Both orange buttons side-by-side (Read Full Story & Explore Food)
+                Row 2: 3rd button alone in row (Order on Tanggy App)
+                Row 3: Last 2 store badges side-by-side (Google Play & App Store) */}
+            <div className="mt-4 flex w-full max-w-sm flex-col items-center gap-2.5 sm:hidden">
+              {/* Row 1: Read Full Story + Explore Food */}
+              <div className="flex w-full items-center justify-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setStoryOpen(true)}
+                  className="flex flex-1 cursor-pointer items-center justify-center gap-1.5 rounded-full bg-linear-to-r from-[#ff981a] via-[#f97316] to-[#dc4c07] px-3 py-2.5 text-xs font-bold text-white shadow-md shadow-orange-500/25 transition-all duration-200 active:scale-[0.98]"
+                >
+                  <span className="truncate">Read Full Story</span>
+                  <svg
+                    className="h-3.5 w-3.5 shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2.4}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                    />
+                  </svg>
+                </button>
+
+                <a
+                  href="#food"
+                  className="flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-full bg-linear-to-r from-[#ff981a] via-[#f97316] to-[#dc4c07] px-3 py-2.5 text-xs font-bold text-white shadow-md shadow-orange-500/25 transition-all duration-200 active:scale-[0.98]"
+                >
+                  <svg
+                    className="h-3.5 w-3.5 shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2.2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M8 3v6a2 2 0 01-2 2H5m3-8v18M5 3v6a2 2 0 002 2m10-8v18m0-18c2 0 3 2.5 3 6s-1 4-3 4"
+                    />
+                  </svg>
+                  <span className="truncate">Explore Food</span>
+                </a>
+              </div>
+
+              {/* Row 2: Order on Tanggy App alone in row */}
+              <div className="flex w-full items-center justify-center">
+                <a
+                  href="#app"
+                  className="flex w-full items-center justify-center gap-2 rounded-full border border-[#f59e0b]/70 bg-white px-5 py-2.5 text-xs font-bold text-[#111827] shadow-2xs transition-all duration-200 hover:border-[#ea580c] hover:bg-orange-50/50 hover:text-[#ea580c] active:scale-[0.98]"
+                >
+                  <span>Order on Tanggy App</span>
+                  <svg
+                    className="h-3.5 w-3.5 shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2.2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                    />
+                  </svg>
+                </a>
+              </div>
+
+              {/* Row 3: Google Play + App Store side-by-side */}
+              <div className="flex w-full items-center justify-center gap-2">
+                <a
+                  href={storeLinks.googlePlay}
+                  aria-label="Get Tanggy on Google Play"
+                  className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#111827] px-3 py-2 text-white shadow-md transition-transform duration-200 active:scale-[0.98]"
+                >
+                  <svg
+                    className="h-5 w-5 shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M3.609 1.814L13.792 12 3.61 22.186a1.004 1.004 0 01-.601-.92V2.734a1.004 1.004 0 01.601-.92z"
+                      fill="#38bdf8"
+                    />
+                    <path
+                      d="M14.5 12.707l2.302 2.302-10.937 6.333a1.004 1.004 0 01-.295-.295L14.5 12.707z"
+                      fill="#f43f5e"
+                    />
+                    <path
+                      d="M17.402 9.806l1.463 1.463a1 1 0 010 1.414l-1.463 1.463-2.601-2.601 2.601-2.339z"
+                      fill="#facc15"
+                    />
+                    <path
+                      d="M14.5 11.293L5.57 4.984a1.004 1.004 0 01.295-.295L16.802 10.954 14.5 11.293z"
+                      fill="#22c55e"
+                    />
+                  </svg>
+                  <div className="text-left">
+                    <div className="text-[9px] font-medium uppercase tracking-wider text-white/75">
+                      GET IT ON
+                    </div>
+                    <div className="text-xs font-bold leading-tight">
+                      Google Play
+                    </div>
+                  </div>
+                </a>
+
+                <a
+                  href={storeLinks.appStore}
+                  aria-label="Download Tanggy on the App Store"
+                  className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#111827] px-3 py-2 text-white shadow-md transition-transform duration-200 active:scale-[0.98]"
+                >
+                  <svg
+                    className="h-5 w-5 shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                  </svg>
+                  <div className="text-left">
+                    <div className="text-[9px] font-medium uppercase tracking-wider text-white/75">
+                      DOWNLOAD ON THE
+                    </div>
+                    <div className="text-xs font-bold leading-tight">
+                      App Store
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            {/* Desktop Action Buttons Block (sm: and above) — completely untouched */}
+            <div className="mt-4 sm:mt-5 hidden sm:inline-flex flex-col items-center">
               {/* Primary CTA: Opens Full Story Modal */}
               <button
                 type="button"
@@ -406,7 +541,7 @@ export function BrandStorySection() {
             </div>
 
             {/* Modal Body */}
-            <div className="space-y-4 px-6 py-6 text-sm leading-relaxed text-[#374151] sm:px-8 sm:text-base">
+            <div className="space-y-4 px-6 py-6 text-justify text-sm leading-relaxed text-[#374151] sm:px-8 sm:text-base">
               <p>
                 Food is more than just something we eat. It is an emotion, a
                 memory, a celebration and an important part of who we are.

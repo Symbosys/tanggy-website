@@ -73,9 +73,9 @@ export function CommunityFlavoursSection() {
 
           {/* Bottom Banner: Preservation of Traditional Food Businesses */}
           <div className="mt-8 sm:mt-10 rounded-2xl bg-[#fff8f2] border border-[#fddfc4] p-4 sm:p-5 shadow-2xs">
-            <div className="flex items-center sm:items-start gap-3.5">
+            <div className="flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left gap-2.5 sm:gap-3.5">
               {/* Storefront Icon */}
-              <div className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-white border border-[#fddfc4] text-[#ea580c] shadow-xs">
+              <div className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-white border border-[#fddfc4] text-[#ea580c] shadow-xs sm:mt-0.5">
                 <svg
                   className="h-5 w-5"
                   viewBox="0 0 24 24"

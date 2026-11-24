@@ -60,8 +60,9 @@ export function VendorCommunitySection() {
             </div>
 
             {/* Main Headline */}
-            <h2 className="mt-3.5 text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-black tracking-tight leading-[1.12]">
-              <span className="text-[#0c1b33]">The Heart of</span> <br />
+            <h2 className="mt-3.5 text-2xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-black tracking-tight leading-[1.15] sm:leading-[1.12]">
+              <span className="text-[#0c1b33]">The Heart of</span>{" "}
+              <br className="hidden lg:inline" />
               <span className="text-[#ea580c]">Tanggy</span>
             </h2>
 
@@ -321,7 +322,7 @@ export function VendorCommunitySection() {
             </h3>
 
             {/* Full Story Paragraphs */}
-            <div className="mt-5 space-y-3.5 text-slate-600 leading-relaxed text-sm sm:text-base">
+            <div className="mt-5 space-y-3.5 text-justify text-slate-600 leading-relaxed text-sm sm:text-base">
               <p>
                 Behind every great meal, there is someone who makes it possible.
                 At Tanggy, we believe local food vendors are our true partners.

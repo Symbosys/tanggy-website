@@ -24,11 +24,11 @@ const HERO_DISHES = [
     image: "/assets/hero-mutton-biryani.png",
   },
   {
-    id: "royal-thali",
-    label: "Royal Indian Thali",
-    subtitle: "Complete traditional feast platter",
-    alt: "Royal Indian Thali with curries, rice, roti and gulab jamun",
-    image: "/assets/hero-royal-thali.png",
+    id: "egg-curry-roti",
+    label: "Desi Egg Curry & Roti",
+    subtitle: "Spiced egg masala, soft rotis & onion salad",
+    alt: "Desi Egg Curry with soft rotis and pickled onions",
+    image: "/assets/hero-egg-curry-roti.png",
   },
   {
     id: "masala-dosa",
@@ -45,18 +45,18 @@ const HERO_DISHES = [
     image: "/assets/hero-idli-sambar.png",
   },
   {
-    id: "rava-dosa",
-    label: "Butter Rava Dosa",
-    subtitle: "Lacy golden crunch with melted butter",
-    alt: "Crispy Butter Rava Dosa with sambar and coconut chutney",
-    image: "/assets/hero-rava-dosa.png",
+    id: "handi-meat-rice",
+    label: "Handi Meat Rice Platter",
+    subtitle: "Slow-cooked mutton in clay pot & aromatic rice",
+    alt: "Traditional Handi Meat Curry with basmati rice, onions and chilies",
+    image: "/assets/hero-handi-meat-rice.png",
   },
   {
-    id: "paneer-meal",
-    label: "Paneer Butter Masala",
-    subtitle: "Creamy paneer, garlic naan & jeera rice",
-    alt: "Paneer Butter Masala combo with naan, rice and raita",
-    image: "/assets/hero-paneer-meal.png",
+    id: "fish-curry-thali",
+    label: "Traditional Fish Curry Thali",
+    subtitle: "Tender fish steaks, fragrant rice & aloo bhaja",
+    alt: "Authentic Fish Curry Thali with steamed rice, salad and aloo bhaja",
+    image: "/assets/hero-fish-curry-thali.png",
   },
   {
     id: "gourmet-burger",
@@ -704,7 +704,7 @@ export function HeroSection() {
           <a
             href="#food"
             aria-label="Scroll to food menu"
-            className="flex h-11 w-7 items-center justify-center rounded-full border border-[#ea580c]/55 bg-white/95 text-[#ea580c] shadow-xs transition-all duration-200 hover:translate-y-0.5 hover:border-[#ea580c] hover:bg-orange-50 hover:shadow-md"
+            className="hidden sm:flex h-11 w-7 items-center justify-center rounded-full border border-[#ea580c]/55 bg-white/95 text-[#ea580c] shadow-xs transition-all duration-200 hover:translate-y-0.5 hover:border-[#ea580c] hover:bg-orange-50 hover:shadow-md"
           >
             <svg
               className="h-3.5 w-3.5"

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Caveat, Plus_Jakarta_Sans } from "next/font/google";
+import { CookieConsent } from "@/components/ui/CookieConsent";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="flex min-h-full flex-col bg-brand-surface text-brand-text">
         {children}
+        <CookieConsent />
       </body>
     </html>
   );

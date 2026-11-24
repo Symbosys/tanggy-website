@@ -63,11 +63,11 @@ export function OrderTrackingSection() {
 
       {/* SECTION CONTENT CONTAINER */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-8 xl:gap-12">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-8 xl:gap-12">
           {/* LEFT COLUMN: HEADINGS & FEATURE CARDS */}
-          <div className="lg:col-span-6 flex flex-col justify-center max-w-xl mx-auto lg:mx-0 w-full">
+          <div className="lg:col-span-6 flex flex-col justify-center max-w-xl mx-auto lg:mx-0 w-full min-w-0">
             {/* Eyebrow Pill */}
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#ffedd5]/90 border border-orange-200/80 px-4 py-1 text-xs sm:text-sm font-bold text-[#ea580c] shadow-2xs w-fit">
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#ffedd5]/90 border border-orange-200/80 px-3.5 sm:px-4 py-1 text-xs sm:text-sm font-bold text-[#ea580c] shadow-2xs w-fit">
               {/* Scooter Icon */}
               <svg
                 className="h-4 w-4 shrink-0 text-[#ea580c]"
@@ -97,7 +97,7 @@ export function OrderTrackingSection() {
             </div>
 
             {/* Main Heading */}
-            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-[42px] font-black tracking-tight text-[#0f2444] leading-[1.15]">
+            <h2 className="mt-3 text-2xl sm:text-4xl lg:text-[42px] font-black tracking-tight text-[#0f2444] leading-[1.18] sm:leading-[1.15]">
               Know exactly where your <br className="hidden sm:inline" />
               <span className="text-[#ea580c]">food</span> is
             </h2>
@@ -109,18 +109,18 @@ export function OrderTrackingSection() {
             </p>
 
             {/* 4 Feature Pill Cards (Compact Stack) */}
-            <div className="mt-5 space-y-2.5 max-w-xl">
+            <div className="mt-5 space-y-2.5 max-w-xl w-full min-w-0">
               {trackingFeatures.map((feature, idx) => (
                 <div
                   key={idx}
-                  className="group flex items-center justify-between gap-3 sm:gap-4 rounded-full bg-white/95 backdrop-blur-sm px-4 py-2 sm:py-2.5 border border-[#fed7aa]/50 shadow-[0_3px_14px_rgba(234,88,12,0.04)] transition-all duration-300 hover:border-orange-300 hover:shadow-[0_6px_20px_rgba(234,88,12,0.1)] hover:scale-[1.01]"
+                  className="group flex items-center justify-between gap-2.5 sm:gap-4 rounded-full bg-white/95 backdrop-blur-sm px-3.5 py-2 sm:px-4 sm:py-2.5 border border-[#fed7aa]/50 shadow-[0_3px_14px_rgba(234,88,12,0.04)] transition-all duration-300 hover:border-orange-300 hover:shadow-[0_6px_20px_rgba(234,88,12,0.1)] hover:scale-[1.01] w-full min-w-0"
                 >
-                  <div className="flex items-center gap-3.5 min-w-0">
+                  <div className="flex items-center gap-2.5 sm:gap-3.5 min-w-0 flex-1">
                     {/* Feature Icon Container */}
-                    <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#ffedd5] to-[#fed7aa]/40 text-[#ea580c] shadow-2xs group-hover:scale-105 transition-transform">
+                    <div className="flex h-9 w-9 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#ffedd5] to-[#fed7aa]/40 text-[#ea580c] shadow-2xs group-hover:scale-105 transition-transform">
                       {feature.icon === "clock" && (
                         <svg
-                          className="h-5 w-5"
+                          className="h-4.5 w-4.5 sm:h-5 sm:w-5"
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
@@ -134,7 +134,7 @@ export function OrderTrackingSection() {
                       )}
                       {feature.icon === "chart" && (
                         <svg
-                          className="h-5 w-5"
+                          className="h-4.5 w-4.5 sm:h-5 sm:w-5"
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
@@ -149,7 +149,7 @@ export function OrderTrackingSection() {
                       )}
                       {feature.icon === "handshake" && (
                         <svg
-                          className="h-5 w-5"
+                          className="h-4.5 w-4.5 sm:h-5 sm:w-5"
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
@@ -165,7 +165,7 @@ export function OrderTrackingSection() {
                       )}
                       {feature.icon === "bell" && (
                         <svg
-                          className="h-5 w-5"
+                          className="h-4.5 w-4.5 sm:h-5 sm:w-5"
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
@@ -180,7 +180,7 @@ export function OrderTrackingSection() {
                     </div>
 
                     {/* Title & Description */}
-                    <div className="min-w-0">
+                    <div className="min-w-0 flex-1">
                       <h3 className="text-xs sm:text-sm font-extrabold text-[#0f2444] leading-snug">
                         {feature.title}
                       </h3>
@@ -242,33 +242,33 @@ export function OrderTrackingSection() {
             </svg>
 
             {/* DUAL PHONES WRAPPER */}
-            <div className="relative flex items-center justify-center max-w-full">
+            <div className="relative flex items-center justify-center max-w-full my-4 sm:my-0">
               {/* PHONE 1: ORDER STEPPER SCREEN (Tilted slightly counter-clockwise) */}
-              <div className="relative z-20 w-[210px] xs:w-[230px] sm:w-[245px] lg:w-[260px] aspect-[506/985] shrink-0 -rotate-3 transition-transform duration-500 hover:rotate-0 drop-shadow-[0_20px_50px_rgba(15,36,68,0.22)]">
+              <div className="relative z-20 w-[160px] xs:w-[185px] sm:w-[245px] lg:w-[260px] aspect-[506/985] shrink-0 -rotate-3 transition-transform duration-500 hover:rotate-0 drop-shadow-[0_15px_35px_rgba(15,36,68,0.2)]">
                 {/* iPhone Frame */}
-                <div className="relative h-full w-full rounded-[42px] sm:rounded-[46px] bg-[#181d24] p-2 sm:p-2.5 border-[2px] border-[#2c333f] shadow-inner ring-1 ring-white/10 flex flex-col">
+                <div className="relative h-full w-full rounded-[30px] sm:rounded-[46px] bg-[#181d24] p-1.5 sm:p-2.5 border-[2px] border-[#2c333f] shadow-inner ring-1 ring-white/10 flex flex-col">
                   {/* Dynamic Island */}
-                  <div className="absolute top-3 left-1/2 -translate-x-1/2 w-18 sm:w-20 h-4.5 sm:h-5 bg-black rounded-full z-30 flex items-center justify-between px-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-slate-900 border border-slate-700/60" />
-                    <span className="h-2 w-2 rounded-full bg-blue-950/80 border border-blue-900/60" />
+                  <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-14 sm:w-20 h-3.5 sm:h-5 bg-black rounded-full z-30 flex items-center justify-between px-1.5 sm:px-2">
+                    <span className="h-1 w-1 sm:h-1.5 sm:w-1.5 rounded-full bg-slate-900 border border-slate-700/60" />
+                    <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-blue-950/80 border border-blue-900/60" />
                   </div>
 
                   {/* Screen Content - Compact spacing without huge bottom gaps */}
-                  <div className="h-full w-full rounded-[34px] sm:rounded-[38px] overflow-hidden bg-[#faf8f5] p-3 sm:p-3.5 pt-2 sm:pt-2.5 text-slate-800 flex flex-col justify-start space-y-1.5 sm:space-y-2">
+                  <div className="h-full w-full rounded-[24px] sm:rounded-[38px] overflow-hidden bg-[#faf8f5] p-2 sm:p-3.5 pt-1.5 sm:pt-2.5 text-slate-800 flex flex-col justify-start space-y-1 sm:space-y-2">
                     <div>
                       {/* Status Bar */}
-                      <div className="flex items-center justify-between text-[10px] sm:text-[11px] font-bold text-slate-900 px-1 pt-1 pb-1">
+                      <div className="flex items-center justify-between text-[8px] sm:text-[11px] font-bold text-slate-900 px-0.5 pt-0.5 pb-0.5 sm:px-1 sm:pt-1 sm:pb-1">
                         <span>9:41</span>
-                        <div className="flex items-center gap-1.5 text-slate-700">
+                        <div className="flex items-center gap-1 text-slate-700">
                           {/* Signal */}
                           <svg
-                            className="h-3 w-3 fill-current"
+                            className="h-2.5 w-2.5 sm:h-3 sm:w-3 fill-current"
                             viewBox="0 0 24 24"
                           >
                             <path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L12 22l7.03-4.39C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9z" />
                           </svg>
                           {/* Battery */}
-                          <div className="w-4.5 h-2.5 rounded-sm border border-slate-700 p-0.5 flex items-center">
+                          <div className="w-3.5 sm:w-4.5 h-2 sm:h-2.5 rounded-xs border border-slate-700 p-0.5 flex items-center">
                             <div className="w-full h-full bg-slate-800 rounded-2xs" />
                           </div>
                         </div>
@@ -276,27 +276,27 @@ export function OrderTrackingSection() {
 
                       {/* Order Title & Live Indicator */}
                       <div className="flex items-center justify-between pt-0.5">
-                        <p className="text-xs sm:text-sm font-extrabold text-[#0f2444]">
+                        <p className="text-[10px] sm:text-sm font-extrabold text-[#0f2444]">
                           Order #TG-4821
                         </p>
-                        <span className="flex items-center gap-1 rounded-full bg-emerald-50 border border-emerald-200 px-2 py-0.5 text-[9px] sm:text-[10px] font-bold text-emerald-600">
-                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        <span className="flex items-center gap-0.5 sm:gap-1 rounded-full bg-emerald-50 border border-emerald-200 px-1.5 sm:px-2 py-0.5 text-[7px] sm:text-[10px] font-bold text-emerald-600">
+                          <span className="h-1 w-1 sm:h-1.5 sm:w-1.5 rounded-full bg-emerald-500 animate-pulse" />
                           Live
                         </span>
                       </div>
-                      <p className="text-[10px] sm:text-[11px] text-slate-400 font-medium mt-0.5 mb-1.5">
+                      <p className="text-[8px] sm:text-[11px] text-slate-400 font-medium mt-0.5 mb-1 sm:mb-1.5 truncate">
                         Hyderabadi Biryani • 2 Items
                       </p>
 
                       {/* Estimated Arrival Card */}
-                      <div className="rounded-2xl bg-white p-2.5 border border-slate-100 shadow-2xs mb-1">
-                        <p className="text-[9px] sm:text-[10px] font-semibold text-slate-400">
+                      <div className="rounded-xl sm:rounded-2xl bg-white p-1.5 sm:p-2.5 border border-slate-100 shadow-2xs mb-1">
+                        <p className="text-[7px] sm:text-[10px] font-semibold text-slate-400">
                           Estimated arrival
                         </p>
-                        <p className="text-lg sm:text-xl font-black text-[#ea580c] leading-tight mt-0.5">
+                        <p className="text-sm sm:text-xl font-black text-[#ea580c] leading-tight mt-0.5">
                           12:55 PM
                         </p>
-                        <div className="mt-1.5 h-1.5 w-full rounded-full bg-orange-100/70 overflow-hidden">
+                        <div className="mt-1 sm:mt-1.5 h-1 sm:h-1.5 w-full rounded-full bg-orange-100/70 overflow-hidden">
                           <div className="h-full w-[65%] rounded-full bg-gradient-to-r from-orange-500 to-amber-500" />
                         </div>
                       </div>
@@ -305,11 +305,11 @@ export function OrderTrackingSection() {
                     {/* Stepper Steps - Compact spacing */}
                     <div className="space-y-0 text-left pt-0.5">
                       {/* Step 1: Placed */}
-                      <div className="flex gap-2">
+                      <div className="flex gap-1.5 sm:gap-2">
                         <div className="flex flex-col items-center">
-                          <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white shadow-xs">
+                          <div className="flex h-3.5 w-3.5 sm:h-5 sm:w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white shadow-xs">
                             <svg
-                              className="h-3 w-3"
+                              className="h-2 w-2 sm:h-3 sm:w-3"
                               fill="none"
                               viewBox="0 0 24 24"
                               stroke="currentColor"
@@ -322,24 +322,24 @@ export function OrderTrackingSection() {
                               />
                             </svg>
                           </div>
-                          <div className="w-0.5 h-3.5 sm:h-4 bg-emerald-500 my-0.5" />
+                          <div className="w-0.5 h-2.5 sm:h-4 bg-emerald-500 my-0.5" />
                         </div>
-                        <div className="pt-0.5">
-                          <p className="text-xs font-bold text-[#0f2444] leading-tight">
+                        <div className="pt-0 sm:pt-0.5">
+                          <p className="text-[9px] sm:text-xs font-bold text-[#0f2444] leading-tight">
                             Order Placed
                           </p>
-                          <p className="text-[9px] sm:text-[10px] text-slate-400">
+                          <p className="text-[7px] sm:text-[10px] text-slate-400">
                             12:04 PM
                           </p>
                         </div>
                       </div>
 
                       {/* Step 2: Preparing */}
-                      <div className="flex gap-2">
+                      <div className="flex gap-1.5 sm:gap-2">
                         <div className="flex flex-col items-center">
-                          <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white shadow-xs">
+                          <div className="flex h-3.5 w-3.5 sm:h-5 sm:w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white shadow-xs">
                             <svg
-                              className="h-3 w-3"
+                              className="h-2 w-2 sm:h-3 sm:w-3"
                               fill="none"
                               viewBox="0 0 24 24"
                               stroke="currentColor"
@@ -352,53 +352,53 @@ export function OrderTrackingSection() {
                               />
                             </svg>
                           </div>
-                          <div className="w-0.5 h-3.5 sm:h-4 bg-orange-400 my-0.5" />
+                          <div className="w-0.5 h-2.5 sm:h-4 bg-orange-400 my-0.5" />
                         </div>
-                        <div className="pt-0.5">
-                          <p className="text-xs font-bold text-[#0f2444] leading-tight">
+                        <div className="pt-0 sm:pt-0.5">
+                          <p className="text-[9px] sm:text-xs font-bold text-[#0f2444] leading-tight">
                             Preparing
                           </p>
-                          <p className="text-[9px] sm:text-[10px] text-slate-400">
+                          <p className="text-[7px] sm:text-[10px] text-slate-400">
                             12:18 PM
                           </p>
                         </div>
                       </div>
 
                       {/* Step 3: Out for Delivery (Active) */}
-                      <div className="flex gap-2">
+                      <div className="flex gap-1.5 sm:gap-2">
                         <div className="flex flex-col items-center">
-                          <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#f97316] text-white text-[10px] font-black shadow-xs">
+                          <div className="flex h-3.5 w-3.5 sm:h-5 sm:w-5 shrink-0 items-center justify-center rounded-full bg-[#f97316] text-white text-[8px] sm:text-[10px] font-black shadow-xs">
                             3
                           </div>
-                          <div className="w-0.5 h-3.5 sm:h-4 bg-slate-200 my-0.5" />
+                          <div className="w-0.5 h-2.5 sm:h-4 bg-slate-200 my-0.5" />
                         </div>
-                        <div className="pt-0.5">
+                        <div className="pt-0 sm:pt-0.5">
                           <div className="flex items-center gap-1 flex-wrap">
-                            <p className="text-xs font-bold text-[#0f2444] leading-tight">
+                            <p className="text-[9px] sm:text-xs font-bold text-[#0f2444] leading-tight">
                               Out for Delivery
                             </p>
-                            <span className="text-[8px] sm:text-[9px] font-bold text-emerald-600 bg-emerald-50 border border-emerald-200/80 rounded-full px-1.5 py-0.2">
+                            <span className="text-[7px] sm:text-[9px] font-bold text-emerald-600 bg-emerald-50 border border-emerald-200/80 rounded-full px-1 sm:px-1.5 py-0.2">
                               In progress
                             </span>
                           </div>
-                          <p className="text-[9px] sm:text-[10px] text-slate-400">
+                          <p className="text-[7px] sm:text-[10px] text-slate-400">
                             12:42 PM
                           </p>
                         </div>
                       </div>
 
                       {/* Step 4: Delivered */}
-                      <div className="flex gap-2">
+                      <div className="flex gap-1.5 sm:gap-2">
                         <div className="flex flex-col items-center">
-                          <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-400 text-[10px] font-bold">
+                          <div className="flex h-3.5 w-3.5 sm:h-5 sm:w-5 shrink-0 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-400 text-[8px] sm:text-[10px] font-bold">
                             4
                           </div>
                         </div>
-                        <div className="pt-0.5">
-                          <p className="text-xs font-medium text-slate-400 leading-tight">
+                        <div className="pt-0 sm:pt-0.5">
+                          <p className="text-[9px] sm:text-xs font-medium text-slate-400 leading-tight">
                             Delivered
                           </p>
-                          <p className="text-[9px] sm:text-[10px] text-slate-400">
+                          <p className="text-[7px] sm:text-[10px] text-slate-400">
                             —
                           </p>
                         </div>
@@ -409,7 +409,7 @@ export function OrderTrackingSection() {
               </div>
 
               {/* PHONE 2: LIVE MAP SCREENSHOT (Shifted right for unblocked view) */}
-              <div className="relative z-10 w-[210px] xs:w-[230px] sm:w-[245px] lg:w-[260px] aspect-[506/985] shrink-0 ml-1 sm:ml-2 lg:ml-2.5 rotate-3 transition-transform duration-500 hover:rotate-1 drop-shadow-[0_25px_60px_rgba(15,36,68,0.22)]">
+              <div className="relative z-10 w-[160px] xs:w-[185px] sm:w-[245px] lg:w-[260px] aspect-[506/985] shrink-0 -ml-12 xs:-ml-14 sm:ml-2 lg:ml-2.5 rotate-3 transition-transform duration-500 hover:rotate-1 drop-shadow-[0_20px_45px_rgba(15,36,68,0.2)]">
                 <Image
                   src="/assets/live-tracking-map-phone.png"
                   alt="Tanggy Live Map Tracking"
@@ -421,7 +421,7 @@ export function OrderTrackingSection() {
               </div>
 
               {/* BOTTOM RIGHT: DELIVERY SCOOTER RIDER ILLUSTRATION */}
-              <div className="pointer-events-none absolute -bottom-5 -right-2 sm:-right-3 lg:-right-4 z-30 w-22 sm:w-26 lg:w-28 select-none drop-shadow-xl transition-transform duration-300 hover:scale-105">
+              <div className="pointer-events-none absolute -bottom-4 -right-1 sm:-bottom-5 sm:-right-3 lg:-right-4 z-30 w-16 sm:w-26 lg:w-28 select-none drop-shadow-xl transition-transform duration-300 hover:scale-105">
                 <Image
                   src="/assets/delivery-rider.png"
                   alt="Delivery Partner on Scooter"
